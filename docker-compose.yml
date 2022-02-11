@@ -1,0 +1,23 @@
+version: "3.9"
+
+services:
+  nextcloud:
+    image: nextcloud:22.2.4-apache
+    restart: "always"
+    ports:
+      - 80
+    volumes:
+      - "./nextcloud_data:/var/www/html"
+  
+  mysql:
+    image: mysql:8.0.28
+    restart: "always"
+    expose:
+      - 3306
+    volumes:
+      - "./mysql_data:/var/lib/mysql"
+    environment:
+      MYSQL_ROOT_PASSWORD: "Ers1234"
+      MYSQL_DATABASE: "nextcloud"
+      MYSQL_USER: "nextcloud"
+      MYSQL_PASSWORD: "Ers1234"
