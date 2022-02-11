@@ -5,7 +5,7 @@ services:
     image: nextcloud:22.2.4-apache
     restart: "always"
     ports:
-      - 80
+      - 80:80
     volumes:
       - "./nextcloud_data:/var/www/html"
   
